@@ -198,12 +198,26 @@ npx n8n
 - **Typing by hand causes typos** (`noshup`, `wc -1`). Keep commands short and verify the screen.
 - **Telegram:** the first message must be sent to your own bot (not BotFather) before `getUpdates` shows a chat ID.
 
-## 11. Roadmap
+## 11. Project Status and Roadmap
 
-- [ ] Auto-start forward loop (shellcmd package or rc script)
+### Done
+- [x] Isolated lab: VMware, pfSense CE 2.9.0, Kali (attacker), Metasploitable2 (victim), VMnet2/VMnet3/VMnet8
+- [x] Suricata IDS/IPS on LAN with ET Open rules, Block Offenders, pass list
+- [x] Custom Suricata rule (sid 1000001, SYN port scan)
+- [x] Alert forwarder script and background loop on pfSense (alerts.log to n8n webhook)
+- [x] n8n workflow: Webhook, Ollama AI triage, validation, rule override, If branch
+- [x] MITRE ATT&CK mapping and severity by rules (AI never decides alone)
+- [x] Case files (OPEN - needs analyst review) and log files (LOGGED)
+- [x] Telegram notification with reason, src -> dst:port, severity, MITRE, action
+- [x] Windows Firewall and timeout fixes, tested end to end with nmap
+- [x] Documentation and GitHub repository
+
+### Next
+- [ ] Auto-start forward loop after pfSense reboot (shellcmd package or rc script)
 - [ ] IST timestamps in case records
-- [ ] Practice attacks: SQLi, vsftpd 2.3.4 with Metasploit, msfvenom reverse shell, DoS
-- [ ] garak vulnerability scan: Llama vs a Dolphin model
+- [ ] Attack practice (lab only): SQLi, vsftpd 2.3.4 with Metasploit, msfvenom reverse shell, DoS, and confirm Suricata alerts for each
+- [ ] Reduce RAM use: lower VM RAM, or run attacks first and triage after
+- [ ] LLM security test: garak scan of Llama vs a Dolphin model
 - [ ] Tines story (check free tier)
 - [ ] Case dashboard
 
